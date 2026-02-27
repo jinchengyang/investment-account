@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="page-title">更新收益</view>
+
+  <!-- 选择更新方式 (仅在未选择时显示) -->
+  <view wx:if="{{!updateType}}" class="update-selector">
+    <view class="selector-tip">上次更新资产至今，是否有未记录的资金进出？</view>
+    <view class="selector-grid">
+      <view class="selector-item blue" bindtap="selectType" data-type="flow">
+        <view class="icon-box">⇅</view>
+        <view class="item-title">有资金进出</view>
+        <view class="item-desc">记录投入/转出</view>
+      </view>
+      <view class="selector-item orange" bindtap="selectType" data-type="no_flow">
+        <view class="icon-box">💰</view>
+        <view class="item-title">没有资金进出</view>
+        <view class="item-desc">只更新新资金金额</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 详细更新表单 -->
+  <view wx:else class="update-form">
+    <view class="form-section" wx:if="{{updateType === 'flow'}}">
+      <view class="section-label blue-text">⇅ 资金进出</view>
+      <view class="form-card">
+        <view class="form-item">
+          <text>类型</text>
+          <view class="type-switch">
+            <view class="switch-btn {{flowType === 'deposit' ? 'active' : ''}}" bindtap="setFlowType" data-val="deposit">投入</view>
+            <view class="switch-btn {{flowType === 'withdrawal' ? 'active' : ''}}" bindtap="setFlowType" data-val="withdrawal">转出</view>
+          </view>
+        </view>
+        <view class="form-item">
+          <text>{{flowType === 'deposit' ? '投入' : '转出'}}金额</text>
+          <input type="digit" placeholder="点击输入金额" class="text-right" model:value="{{flowAmount}}" />
+        </view>
+      </view>
+    </view>
+
+    <view class="form-section">
+      <view class="section-label orange-text">💰 当前资产金额</view>
+      <view class="form-card">
+        <view class="form-item">
+          <text>日期</text>
+          <view class="font-bold">02/25(今天)</view>
+        </view>
+        <view class="form-item">
+          <text>资产金额</text>
+          <view class="text-right">
+            <input type="digit" placeholder="0.00" class="font-bold" model:value="{{balance}}" />
+            <view class="last-record">上次记录: {{account.balance}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-section">
+      <textarea placeholder="填写备注" class="note-area" model:value="{{note}}"></textarea>
+    </view>
+
+    <button class="submit-btn" bindtap="submit">完成</button>
+  </view>
+</view>

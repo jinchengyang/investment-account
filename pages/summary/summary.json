@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "汇总详情",
+  "usingComponents": {
+    "ec-canvas": "../../components/ec-canvas/ec-canvas"
+  }
+}

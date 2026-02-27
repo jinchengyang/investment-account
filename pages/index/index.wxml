@@ -1,0 +1,58 @@
+<view class="container">
+  <!-- 汇总卡片 -->
+  <view class="card summary-card" bindtap="goToSummary">
+    <view class="flex-between mb-20">
+      <view class="summary-label">
+        默认汇总 (元) <text class="eye-icon" catchtap="toggleVisible">{{visible ? '👁️' : '🙈'}}</text>
+      </view>
+      <text class="arrow">></text>
+    </view>
+    <view class="total-assets">{{visible ? summary.totalAssets : '******'}}</view>
+    <view class="flex-between mt-40">
+      <view>
+        <view class="sub-label">累计收益 (元)</view>
+        <view class="sub-value text-rose">{{visible ? summary.cumulativeProfit : '***'}}</view>
+      </view>
+      <view>
+        <view class="sub-label">年化收益率</view>
+        <view class="sub-value text-rose">{{visible ? summary.annualizedReturn + '%' : '***'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 账户列表 -->
+  <view class="section-header flex-between">
+    <view class="font-bold">全部资产 <text class="plus-small">+</text></view>
+    <text class="more-icon">⋮</text>
+  </view>
+
+  <block wx:for="{{accounts}}" wx:key="id">
+    <view class="card account-card">
+      <view class="flex-between mb-30">
+        <view>
+          <view class="account-name">{{item.name}}</view>
+          <view class="update-time">{{item.updateTime}}更新</view>
+        </view>
+        <button class="update-btn" size="mini" catchtap="goToUpdate" data-id="{{item.id}}">更新收益</button>
+      </view>
+      <view class="account-grid">
+        <view>
+          <view class="grid-label">资产 ({{item.currency}})</view>
+          <view class="grid-value">{{item.balance}}</view>
+        </view>
+        <view>
+          <view class="grid-label">累计收益</view>
+          <view class="grid-value text-rose">+{{item.profit}}</view>
+        </view>
+        <view class="text-right">
+          <view class="grid-label">年化收益率</view>
+          <view class="grid-value text-rose">+{{item.rate}}%</view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view class="add-account" bindtap="addAccount">
+    <text class="plus-icon">+</text> 添加投资资产
+  </view>
+</view>

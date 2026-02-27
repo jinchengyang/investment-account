@@ -1,0 +1,116 @@
+.page-title {
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 60rpx;
+}
+
+.selector-tip {
+  text-align: center;
+  font-size: 26rpx;
+  color: #94a3b8;
+  margin-bottom: 40rpx;
+}
+
+.selector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30rpx;
+}
+
+.selector-item {
+  border-radius: 32rpx;
+  padding: 40rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selector-item.blue { background: #f0f7ff; }
+.selector-item.orange { background: #fff7ed; }
+
+.icon-box {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.blue .icon-box { background: #007AFF; box-shadow: 0 10rpx 20rpx rgba(0,122,255,0.2); }
+.orange .icon-box { background: #f59e0b; box-shadow: 0 10rpx 20rpx rgba(245,158,11,0.2); }
+
+.item-title { font-size: 28rpx; font-weight: bold; margin-bottom: 8rpx; }
+.item-desc { font-size: 20rpx; }
+.blue .item-desc { color: #007AFF; }
+.orange .item-desc { color: #f59e0b; }
+
+/* Form Styles */
+.form-section { margin-bottom: 40rpx; }
+.section-label { font-size: 28rpx; font-weight: bold; margin-bottom: 20rpx; }
+.blue-text { color: #007AFF; }
+.orange-text { color: #f59e0b; }
+
+.form-card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 0 30rpx;
+}
+
+.form-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f1f5f9;
+  font-size: 28rpx;
+}
+
+.form-item:last-child { border-bottom: none; }
+
+.type-switch {
+  display: flex;
+  background: #f1f5f9;
+  padding: 6rpx;
+  border-radius: 12rpx;
+}
+
+.switch-btn {
+  padding: 10rpx 30rpx;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  color: #94a3b8;
+}
+
+.switch-btn.active {
+  background: #007AFF;
+  color: #fff;
+  font-weight: bold;
+}
+
+.text-right { text-align: right; }
+.last-record { font-size: 20rpx; color: #94a3b8; margin-top: 6rpx; }
+
+.note-area {
+  width: 100%;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  height: 200rpx;
+}
+
+.submit-btn {
+  width: 100% !important;
+  background: #007AFF;
+  color: #fff;
+  border-radius: 100rpx;
+  padding: 24rpx 0;
+  font-size: 32rpx;
+  margin-top: 60rpx;
+}

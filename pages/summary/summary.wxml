@@ -1,0 +1,67 @@
+<view class="container">
+  <view class="breadcrumb">汇总 / <text class="font-bold">默认汇总</text></view>
+
+  <view class="card">
+    <view class="grid-label">总资产 (元) 👁️</view>
+    <view class="total-assets">{{summary.totalAssets}}</view>
+    <view class="summary-grid mt-40">
+      <view>
+        <view class="grid-label">累计收益 (元)</view>
+        <view class="grid-value text-rose">{{summary.cumulativeProfit}}</view>
+      </view>
+      <view>
+        <view class="grid-label">时间加权收益率</view>
+        <view class="grid-value text-rose">+{{summary.timeWeightedReturn}}%</view>
+      </view>
+      <view>
+        <view class="grid-label">年化收益率</view>
+        <view class="grid-value text-rose">+{{summary.annualizedReturn}}%</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 图表卡片 -->
+  <view class="card chart-card">
+    <view class="chart-tabs">
+      <view class="tab active">收益率曲线</view>
+      <view class="tab">累计收益曲线</view>
+    </view>
+    
+    <view class="chart-legend">
+      <view class="legend-item"><text class="dot blue"></text> 时间加权收益率</view>
+      <view class="legend-item"><text class="dot purple"></text> 沪深 300 全收益</view>
+    </view>
+
+    <!-- 模拟图表区域 -->
+    <view class="chart-container">
+      <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+    </view>
+
+    <view class="time-tabs">
+      <view wx:for="{{timeRanges}}" wx:key="*this" class="time-tab {{item === '记账以来' ? 'active' : ''}}">
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">年度收益对比</view>
+  <view class="card p-0">
+    <view class="table">
+      <view class="tr header">
+        <view class="th">时间</view>
+        <view class="th">时间加权收益率</view>
+        <view class="th">沪深 300</view>
+      </view>
+      <view class="tr">
+        <view class="td">年化</view>
+        <view class="td text-rose">+2.83%</view>
+        <view class="td text-rose">+9.02%</view>
+      </view>
+      <view class="tr">
+        <view class="td">2025年</view>
+        <view class="td text-rose">+15.74%</view>
+        <view class="td text-rose">+20.98%</view>
+      </view>
+    </table-->
+  </view>
+</view>
